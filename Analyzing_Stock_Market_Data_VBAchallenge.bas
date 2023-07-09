@@ -9,7 +9,7 @@ Sub Analyzing_Stock_Market()
     'Start loop
     For Each ws In Worksheets
 
-        'Create column labels for the Index table
+        'Create column labels for the Stock Index table
         ws.Range("I1").Value = "Ticker Symbol"
         ws.Range("J1").Value = "Yearly Change"
         ws.Range("K1").Value = "Percent Change"
@@ -64,7 +64,7 @@ Sub Analyzing_Stock_Market()
             'Sum up the volume for each row to determine the total stock volume for the year
             total_vol = total_vol + ws.Cells(i, 7)
 
-            'determine if the ticker symbol is syncronizing in the Index Table
+            'determine if the ticker symbol is syncronizing in the Stock Index Table
             If ws.Cells(i, 1).Value <> ws.Cells(i + 1, 1).Value Then
 
                 'Copy ticker symbol to Index table
@@ -76,7 +76,7 @@ Sub Analyzing_Stock_Market()
                 'Grab year closing price
                 Closing_price = ws.Cells(i, 6).Value
 
-                'price change for the year and move it to the Index table.
+                'price change for the year and move it to the Stock Index table.
                 yearly_change = (closing_price - opening_price)
                 ws.Cells(rowcount, 10).Value = yearly_change
                 ws.Cells(rowcount, 10).NumberFormat = "0.00"
